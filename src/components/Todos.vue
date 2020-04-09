@@ -4,7 +4,7 @@
 
     <div v-bind:key="todo.id" v-for="todo in todos"> <!-- Boucle table ID Todo -->
         <!-- <h3> {{ todo.title }} </h3> Affiche le titre de chaques éléments -->
-        <TodoItem v-bind:todo="todo"/> <!-- Afficher TodoItem -->
+        <TodoItem v-bind:todo="todo" v-on:del-todo="$emit('del-todo', todo.id)"/> <!-- Afficher TodoItem -->
 
     </div>
 

@@ -3,7 +3,7 @@
     <div id="app">
 
         <!-- <Todos />  Afficher Todos -->
-      <Todos v-bind:todos="todos"/> 
+      <Todos v-bind:todos="todos" v-on:del-todo="deleteTodo"/> <!-- Methods deleteTodo -->
 
     </div>
 
@@ -42,7 +42,14 @@ export default {
               }
           ]
       }
+  },
+
+  methods: {
+      deleteTodo(id) {
+          this.todos = this.todos.filter(todo => todo.id !== id);
+      }
   }
+
 }
 
 </script>

@@ -5,7 +5,7 @@
         <p> 
             <input type="checkbox" v-on:change="markComplete">
             {{ todo.title }} 
-            <button @click="$emit('del-todo.id')" class="del">x</button>
+            <button @click="$emit('del-todo', todo.id)" class="del">x</button>
             </p> <!--Utilise le props todo dynamiquement pour afficher le titre -->
 
     </div>
