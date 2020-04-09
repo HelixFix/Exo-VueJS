@@ -10,15 +10,20 @@
 </template>
 
 <script>
+
 import Todos from './components/Todos'; // importer Todos
 
 export default {
+
   name: 'App',
   components: {
       Todos // Utiliser Todos
   },
+
   data () {
+
       return {
+
           todos: [
               {
                   id: 1,
@@ -33,12 +38,13 @@ export default {
               {
                   id: 3,
                   title: "Todo Three",
-                  completeted: false
+                  completed: false
               }
           ]
       }
   }
 }
+
 </script>
 
 <style>

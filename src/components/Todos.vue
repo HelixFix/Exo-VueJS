@@ -13,14 +13,17 @@
 </template>
 
 <script>
+
 import TodoItem from './TodoItem.vue' // Importer TodoItem
 
 export default {
+
     name: "Todos",
     components: {
         TodoItem // Utiliser TodoItem
     },
     props: ["todos"] // Propriétés de todos
+
 }
 
 </script>

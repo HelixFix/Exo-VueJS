@@ -2,7 +2,9 @@
 
     <div class="todo-item" v-bind:class="{'is-complete':todo.completed}">
 
-        <p> {{ todo.title }} </p> <!--Utilise le props todo dynamiquement pour afficher le titre -->
+        <p> 
+            <input type="checkbox" v-on:change="markComplete">
+            {{ todo.title }} </p> <!--Utilise le props todo dynamiquement pour afficher le titre -->
 
     </div>
 
@@ -13,8 +15,14 @@
 export default {
 
     name: "TodoItem",
-    props: ["todo"] // Propriétés de todo
-    
+    props: ["todo"], // Propriétés de todo
+    methods: {
+        markComplete() {
+            // console.log(123)
+            this.todo.completed = !this.todo.completed;
+        }
+    }
+
 }
 
 </script>
