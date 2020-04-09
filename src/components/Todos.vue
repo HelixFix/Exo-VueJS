@@ -2,7 +2,10 @@
 
 <div>
 
-    <h1>Todos</h1>
+    <div v-bind:key="todo.id" v-for="todo in todos"> <!-- Boucle table ID Todo -->
+        <h3> {{ todo.title }} </h3> <!-- Affiche le titre de chaques éléments -->
+
+    </div>
 
 </div>
     
@@ -11,7 +14,8 @@
 <script>
 
 export default {
-    name: "Todos"
+    name: "Todos",
+    props: ["todos"]
 }
 
 </script>

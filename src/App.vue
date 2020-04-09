@@ -2,14 +2,15 @@
 
     <div id="app">
 
-      <Todos /> <!--  Afficher Todos -->
+        <!-- <Todos />  Afficher Todos -->
+      <Todos v-bind:todos="todos"/> 
 
     </div>
 
 </template>
 
 <script>
-import Todos from './components/Todos'; // Iportorter Todos
+import Todos from './components/Todos'; // importer Todos
 
 export default {
   name: 'App',
