@@ -4,8 +4,10 @@
 
         <p> 
             <input type="checkbox" v-on:change="markComplete">
-            {{ todo.title }} </p> <!--Utilise le props todo dynamiquement pour afficher le titre -->
+            {{ todo.title }} 
             <button @click="$emit('del-todo.id')" class="del">x</button>
+            </p> <!--Utilise le props todo dynamiquement pour afficher le titre -->
+
     </div>
 
 </template>
@@ -44,6 +46,7 @@ export default {
     }
 
     .del {
+
         background: #ff0000;
         color: #fff;
         border: none;
@@ -51,6 +54,7 @@ export default {
         border-radius: 50%;
         cursor: pointer;
         float: right;
+
     }
 
 </style>
