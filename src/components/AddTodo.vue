@@ -26,7 +26,7 @@ export default {
     },
     methods: {
         addTodo(e) {
-            e.preventDefault();
+            e.preventDefault(); // On ne veut pas que le form submit à un fichier
             const newTodo = {
                 // id: uuid.v4(), ne marche pas
                 id: uuid, // Utiliser uuid
@@ -35,6 +35,7 @@ export default {
             }
             // Send up to parent
             this.$emit('add-todo', newTodo);
+            this.title = ''; // Vide le champ après l'envoi
         }
     }
 
