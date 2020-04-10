@@ -15,7 +15,8 @@
 
 <script>
 
-import uuid from 'uuid'; // Importer le generateur d'ID
+import { v4 as uuidv4 } from 'uuid';
+
 export default {
 
     name: "AddTodo",
@@ -29,7 +30,7 @@ export default {
             e.preventDefault(); // On ne veut pas que le form submit à un fichier
             const newTodo = {
                 // id: uuid.v4(), ne marche pas
-                id: uuid, // Utiliser uuid, inutile si on utilise axios
+                id: uuidv4(), // Utiliser uuid, inutile si on utilise axios
                 title: this.title,
                 completed: false
             }
