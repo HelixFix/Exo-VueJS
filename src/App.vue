@@ -57,7 +57,10 @@ export default {
   methods: {
 
         deleteTodo(id) {
-            this.todos = this.todos.filter(todo => todo.id !== id); // Le filtre boucle comme un foreach avec une condition qui permet de retourner un tableau baser sur cette condition et cette condition est qu'on veut tout sauf l'ID supprimer
+            axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
+                .then(res => this.todos = this.todos.filter(todo => todo.id !== id)) // renvoie un objet Promise
+                .catch(err => console.log(err));
+            // this.todos = this.todos.filter(todo => todo.id !== id); // Le filtre boucle comme un foreach avec une condition qui permet de retourner un tableau baser sur cette condition et cette condition est qu'on veut tout sauf l'ID supprimer
         },
 
         addTodo(newTodo) { // Ajoute un nouveau todo dans le tableau
@@ -65,19 +68,22 @@ export default {
             const { title, completed } = newTodo;
             axios.post('https://jsonplaceholder.typicode.com/todos', {
                 title,
-                completed
-            })
-            
-            .then(res => this.todos = [...this.todos, newTodo, res.data])
-            .catch(err => console.log(err));
+                completed,
+                
+            }) // C'est une emulation d'un envoi
+
+                .then(res => this.todos = [...this.todos, newTodo, res.data]) // renvoie un objet Promise
+                .catch(err => console.log(err));
             
         }
 
     },
     created() {
+
         axios.get('https://jsonplaceholder.typicode.com/todos?_limit=5')
-        .then(res => this.todos = res.data) // Réponse
-        .catch(err => console.log(err)); // débug
+
+            .then(res => this.todos = res.data) // Réponse
+            .catch(err => console.log(err)); // débug
     }
 
 }
