@@ -2,6 +2,8 @@
 
     <div id="app">
 
+        <Header />
+
         <!-- <Todos />  Afficher Todos -->
 
         <!-- v-bind permet de faire des liaisons -->
@@ -13,12 +15,15 @@
 
 <script>
 
+import Header from './components/layout/Header'; // importer header
+
 import Todos from './components/Todos'; // importer Todos
 
 export default {
 
   name: 'App',
   components: {
+      Header,
       Todos // Utiliser Todos
   },
 
