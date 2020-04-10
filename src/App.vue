@@ -3,6 +3,8 @@
     <div id="app">
 
         <!-- <Todos />  Afficher Todos -->
+
+        <!-- v-bind permet de faire des liaisons -->
       <Todos v-bind:todos="todos" v-on:del-todo="deleteTodo"/> <!-- Methods deleteTodo -->
 
     </div>
@@ -46,7 +48,7 @@ export default {
 
   methods: {
       deleteTodo(id) {
-          this.todos = this.todos.filter(todo => todo.id !== id);
+          this.todos = this.todos.filter(todo => todo.id !== id); // Le filtre boucle comme un foreach avec une condition qui permet de retourner un tableau baser sur cette condition et cette condition est qu'on veut tout sauf l'ID supprimer
       }
   }
 
