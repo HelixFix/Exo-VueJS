@@ -7,6 +7,8 @@
             <input type="text" name="title" placeholder="Add">
             <input type="submit" value="Submit" class="btn">
 
+        </form>
+
     </div>
 
 </template>
@@ -30,16 +32,12 @@ export default {
     }
 
     input[type="text"] {
-
         flex: 10;
         padding: 5px;
-
     }
 
     input[type="submit"] {
-
         flex: 2;
-
     }
 
 </style>
