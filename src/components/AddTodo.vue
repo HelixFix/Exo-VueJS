@@ -2,9 +2,9 @@
 
     <div>
 
-        <form>
+        <form @submit="addTodo">
 
-            <input type="text" name="title" placeholder="Add">
+            <input type="text" v-model="title" name="title" placeholder="Add"> <!-- v-model pour créer une liaison de données bidirectionnelle sur les champs de formulaire (input, select ou textarea). -->
             <input type="submit" value="Submit" class="btn">
 
         </form>
@@ -15,9 +15,28 @@
 
 <script>
 
+import uuid from 'uuid'; // Importer le generateur d'ID
 export default {
 
-    name: "AddTodo"
+    name: "AddTodo",
+    data() {
+        return {
+            title: ''
+        }
+    },
+    methods: {
+        addTodo(e) {
+            e.preventDefault();
+            const newTodo = {
+                // id: uuid.v4(), ne marche pas
+                id: uuid, // Utiliser uuid
+                title: this.title,
+                completed: false
+            }
+            // Send up to parent
+            this.$emit('add-todo', newTodo);
+        }
+    }
 
 }
 

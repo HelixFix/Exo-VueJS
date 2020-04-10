@@ -3,7 +3,7 @@
     <div id="app">
 
         <Header />
-        <AddTodo /> <!-- Utiliser AddTodo-->
+        <AddTodo v-on:add-todo="addTodo"/> <!-- Utiliser AddTodo-->
 
         <!-- <Todos />  Afficher Todos -->
 
@@ -53,9 +53,15 @@ export default {
   },
 
   methods: {
+
       deleteTodo(id) {
           this.todos = this.todos.filter(todo => todo.id !== id); // Le filtre boucle comme un foreach avec une condition qui permet de retourner un tableau baser sur cette condition et cette condition est qu'on veut tout sauf l'ID supprimer
+      },
+
+      addTodo(newTodo) { // Ajoute un nouveau todo dans le tableau
+          this.todos = [...this.todos, newTodo];
       }
+
   }
 
 }
