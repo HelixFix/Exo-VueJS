@@ -25,7 +25,7 @@ export default {
   data () {
 
       return {
-
+// Like a fake REST API
           todos: [
               {
                   id: 1,
