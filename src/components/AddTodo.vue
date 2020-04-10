@@ -15,7 +15,7 @@
 
 <script>
 
-// import uuid from 'uuid'; // Importer le generateur d'ID
+import uuid from 'uuid'; // Importer le generateur d'ID
 export default {
 
     name: "AddTodo",
@@ -25,17 +25,14 @@ export default {
         }
     },
     methods: {
-
         addTodo(e) {
-
             e.preventDefault(); // On ne veut pas que le form submit à un fichier
             const newTodo = {
-                // id: uuid.v4(), ne marche plus à ce jour
-                // id: uuid, // Utiliser uuid, inutile si on utilise axios
+                // id: uuid.v4(), ne marche pas
+                id: uuid, // Utiliser uuid, inutile si on utilise axios
                 title: this.title,
                 completed: false
             }
-
             // Send up to parent
             this.$emit('add-todo', newTodo);
             this.title = ''; // Vide le champ après l'envoi
@@ -49,7 +46,9 @@ export default {
 <style scoped>
 
     form {
+
         display: flex;
+
     }
 
     input[type="text"] {

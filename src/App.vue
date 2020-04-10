@@ -19,8 +19,6 @@
 import Header from './components/layout/Header'; // importer Header.vue
 import Todos from './components/Todos'; // importer Todos.vue
 import AddTodo from './components/AddTodo'; // importer AddTodo.vue
-import axios from 'axios'; // Importer/définir axios
-
 export default {
 
   name: 'App',
@@ -35,56 +33,36 @@ export default {
       return {
 // Like a fake REST API
           todos: [
-            //   {
-            //       id: 1,
-            //       title: "Todo One",
-            //       completed: false
-            //   },
-            //   {
-            //       id: 2,
-            //       title: "Todo Two",
-            //       completed: true
-            //   },
-            //   {
-            //       id: 3,
-            //       title: "Todo Three",
-            //       completed: false
-            //   }
+              {
+                  id: 1,
+                  title: "Todo One",
+                  completed: false
+              },
+              {
+                  id: 2,
+                  title: "Todo Two",
+                  completed: true
+              },
+              {
+                  id: 3,
+                  title: "Todo Three",
+                  completed: false
+              }
           ]
       }
   },
 
   methods: {
 
-        deleteTodo(id) {
-            axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
-                .then(res => this.todos = this.todos.filter(todo => todo.id !== id)) // renvoie un objet Promise
-                .catch(err => console.log(err));
-            // this.todos = this.todos.filter(todo => todo.id !== id); // Le filtre boucle comme un foreach avec une condition qui permet de retourner un tableau baser sur cette condition et cette condition est qu'on veut tout sauf l'ID supprimer
-        },
+      deleteTodo(id) {
+          this.todos = this.todos.filter(todo => todo.id !== id); // Le filtre boucle comme un foreach avec une condition qui permet de retourner un tableau baser sur cette condition et cette condition est qu'on veut tout sauf l'ID supprimer
+      },
 
-        addTodo(newTodo) { // Ajoute un nouveau todo dans le tableau
+      addTodo(newTodo) { // Ajoute un nouveau todo dans le tableau
+          this.todos = [...this.todos, newTodo];
+      }
 
-            const { title, completed } = newTodo;
-            axios.post('https://jsonplaceholder.typicode.com/todos', {
-                title,
-                completed,
-                
-            }) // C'est une emulation d'un envoi
-
-                .then(res => this.todos = [...this.todos, newTodo, res.data]) // renvoie un objet Promise
-                .catch(err => console.log(err));
-            
-        }
-
-    },
-    created() {
-
-        axios.get('https://jsonplaceholder.typicode.com/todos?_limit=5')
-
-            .then(res => this.todos = res.data) // Réponse
-            .catch(err => console.log(err)); // débug
-    }
+  }
 
 }
 
