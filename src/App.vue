@@ -3,11 +3,12 @@
     <div id="app">
 
         <Header />
+        <AddTodo /> <!-- Utiliser AddTodo-->
 
         <!-- <Todos />  Afficher Todos -->
 
         <!-- v-bind permet de faire des liaisons -->
-      <Todos v-bind:todos="todos" v-on:del-todo="deleteTodo"/> <!-- Methods deleteTodo -->
+        <Todos v-bind:todos="todos" v-on:del-todo="deleteTodo"/> <!-- Methods deleteTodo -->
 
     </div>
 
@@ -15,16 +16,16 @@
 
 <script>
 
-import Header from './components/layout/Header'; // importer header
-
-import Todos from './components/Todos'; // importer Todos
-
+import Header from './components/layout/Header'; // importer Header.vue
+import Todos from './components/Todos'; // importer Todos.vue
+import AddTodo from './components/AddTodo'; // importer AddTodo.vue
 export default {
 
   name: 'App',
   components: {
-      Header,
-      Todos // Utiliser Todos
+      Header, // Enregistrer Header
+      Todos, // Enregistrer Todos
+      AddTodo // Enregistrer AddTodo
   },
 
   data () {
